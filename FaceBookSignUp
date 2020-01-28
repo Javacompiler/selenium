@@ -1,0 +1,53 @@
+package com.selenium.tts;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class SeleniumTest {
+    //C:\Users\chandra.bhanu.pratap\selanium\chromedriver_win32
+    public static void main(String[] str) throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\chandra.bhanu.pratap\\selanium\\chromedriver_win32\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/");
+    //SignIn
+        // driver.findElement(By.id("email")).sendKeys("test@gmail.com");
+        // driver.findElement(By.id("pass")).sendKeys("test123");
+        //driver.findElement(By.id("loginbutton")).click();
+        //Thread.sleep(5000);
+        ((ChromeDriver) driver).findElementByName("firstname").sendKeys("Bulbul");
+        ((ChromeDriver) driver).findElementByName("lastname").sendKeys("Singh");
+        ((ChromeDriver) driver).findElementByName("reg_email__").sendKeys("abc@gmail.com");
+        //driver.findElement(By.id("u_0_y")).sendKeys("abc@gmail.com");
+        ((ChromeDriver) driver).findElementByName("reg_email_confirmation__").sendKeys("abc@gmail.com");
+        ((ChromeDriver) driver).findElementByName("reg_passwd__").sendKeys("xhcvhgvgyu");
+        Select day = new Select(driver.findElement(By.id("day")));
+        day.selectByIndex(1);
+        Select month = new Select(driver.findElement(By.id("month")));
+        month.selectByIndex(2);
+        Select year = new Select(driver.findElement(By.id("year")));
+        year.selectByIndex(25);
+        // WebElement webElement= driver.findElement(By.id("u_0_6"));
+        //webElement.click();
+
+        //((ChromeDriver) driver).findElementByClassName("_1lch").findElement(By.id("u_0_17")).click();
+        //driver.findElement(By.id("u_0_17")).click();
+        //radio button
+        driver.findElement(By.xpath("//input[@value='2']")).click();//for selecting male
+
+        driver.findElement(By.name("websubmit")).click();
+
+
+        // driver.close();
+
+
+        // driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);
+        //driver.quit();
+        //driver.close();
+
+    }
+
+}
